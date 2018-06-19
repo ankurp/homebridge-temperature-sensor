@@ -5,8 +5,7 @@ let Service, Characteristic;
 module.exports = function(homebridge) {
   Service = homebridge.hap.Service;
   Characteristic = homebridge.hap.Characteristic;
-  homebridge.registerAccessory('homebridge-temperature-humidity-sensor', 'Temperature Sensor', Sensor);
-  homebridge.registerAccessory('homebridge-temperature-humidity-sensor', 'Humidity Sensor', Sensor);
+  homebridge.registerAccessory('homebridge-temperature-humidity-sensor', 'Temperature Humidity Sensor', Sensor);
 };
 
 class Sensor {
@@ -24,9 +23,11 @@ class Sensor {
   }
 
   startReading() {
-    this.getReading(() => {
-      setTimeout(() => this.getReading(), 5000);
-    });
+    const callback = () => {
+      setTimeout(() => this.getReading(callback), 5000);
+    };
+
+    this.getReading(callback);
   }
 
   getReading(callback) {
@@ -79,6 +80,6 @@ class Sensor {
 
     this.startReading();
 
-    return [informationService, this.currentTemperature, this.currentRelativeHumidity];
+    return [informationService, this.temperatureService, this.humidityService];
   }
 }
