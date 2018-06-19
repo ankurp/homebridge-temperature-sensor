@@ -33,7 +33,7 @@ class Sensor {
     sensor.read(22, this.pin, (err, temperature, humidity) => {
       callback();
       if (err) {
-        console.error(err);
+        console.error(err); // eslint-disable-line no-console
         return;
       }
 
