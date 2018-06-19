@@ -1,0 +1,35 @@
+{
+  "name": "homebridge-temperature-humidity-sensor",
+  "version": "1.0.0",
+  "description": "Hombridge plugin for DHT22 Temperature and Humidity Sensor",
+  "main": "index.js",
+  "engines": {
+    "node": ">=6.12.2",
+    "homebridge": ">=0.4.33"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ankurp/homebridge-temperature-humidity-sensor.git"
+  },
+  "keywords": [
+    "homebridge-plugin",
+    "temperature-sensor",
+    "humidity-sensor",
+    "raspberry-pi",
+    "dht22",
+    "homebridge"
+  ],
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "author": "Ankur Patel <ankur.patel@ymail.com> (https://www.encoredevlabs.com)",
+  "license": "ISC",
+  "dependencies": {
+    "node-dht-sensor": "0.0.34"
+  },
+  "devDependencies": {
+    "eslint": "^4.13.1",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-standard": "^3.0.1"
+  }
+}

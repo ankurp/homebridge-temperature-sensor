@@ -1,0 +1,26 @@
+{
+  "bridge": {
+    "name": "Homebridge",
+    "username": "CC:22:3D:E3:CE:50",
+    "port": 51826,
+    "pin": "031-45-154"
+  },
+  
+  "description": "",
+
+  "accessories": [
+    {
+      "accessory": "Temperature Sensor",
+      "name": "Pi Temperature Sensor",
+      "pin": 4
+    },
+    {
+      "accessory": "Humidity Sensor",
+      "name": "Pi Humidity Sensor",
+      "pin": 4
+    }
+  ],
+
+  "platforms": [
+  ]
+}
