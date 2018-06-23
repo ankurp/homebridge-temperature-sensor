@@ -1,7 +1,7 @@
 {
-  "name": "homebridge-temperature-humidity-sensor",
+  "name": "homebridge-temperature-sensor",
   "version": "1.0.0",
-  "description": "Hombridge plugin for DHT22 Temperature and Humidity Sensor",
+  "description": "Hombridge plugin for DHT22 Temperature Sensor",
   "main": "index.js",
   "engines": {
     "node": ">=6.12.2",
@@ -9,12 +9,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ankurp/homebridge-temperature-humidity-sensor.git"
+    "url": "https://github.com/ankurp/homebridge-temperature-sensor.git"
   },
   "keywords": [
     "homebridge-plugin",
     "temperature-sensor",
-    "humidity-sensor",
     "raspberry-pi",
     "dht22",
     "homebridge"

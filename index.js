@@ -5,7 +5,7 @@ let Service, Characteristic;
 module.exports = function(homebridge) {
   Service = homebridge.hap.Service;
   Characteristic = homebridge.hap.Characteristic;
-  homebridge.registerAccessory('homebridge-temperature-humidity-sensor', 'Temperature Humidity Sensor', Sensor);
+  homebridge.registerAccessory('homebridge-temperature-sensor', 'Temperature Sensor', Sensor);
 };
 
 class Sensor {
@@ -14,7 +14,6 @@ class Sensor {
     this.name = config.name;
     this.pin = config.pin;
     this.currentTemperature = 22;
-    this.currentRelativeHumidity = 50;
   }
 
   identify(callback) {
@@ -31,7 +30,7 @@ class Sensor {
   }
 
   getReading(callback) {
-    sensor.read(22, this.pin, (err, temperature, humidity) => {
+    sensor.read(22, this.pin, (err, temperature) => {
       callback();
       if (err) {
         console.error(err); // eslint-disable-line no-console
@@ -39,10 +38,7 @@ class Sensor {
       }
 
       this.currentTemperature = temperature;
-      this.currentRelativeHumidity = humidity;
-
       this.temperatureService.setCharacteristic(Characteristic.CurrentTemperature, this.currentTemperature);
-      this.humidityService.setCharacteristic(Characteristic.CurrentRelativeHumidity, this.currentRelativeHumidity);
     });
   }
 
@@ -66,20 +62,8 @@ class Sensor {
         callback(null, this.name);
       });
 
-    this.humidityService = new Service.HumiditySensor(this.name);
-    this.humidityService
-      .getCharacteristic(Characteristic.CurrentRelativeHumidity)
-      .on('get', (callback) => {
-        callback(null, this.currentRelativeHumidity);
-      });
-    this.humidityService
-      .getCharacteristic(Characteristic.Name)
-      .on('get', callback => {
-        callback(null, this.name);
-      });
-
     this.startReading();
 
-    return [informationService, this.temperatureService, this.humidityService];
+    return [informationService, this.temperatureService];
   }
 }
