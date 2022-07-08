@@ -1,6 +1,6 @@
 {
   "name": "homebridge-temperature-sensor",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Hombridge plugin for DHT22 Temperature Sensor",
   "main": "index.js",
   "engines": {
@@ -24,7 +24,7 @@
   "author": "Ankur Patel <ankur.patel@ymail.com> (https://www.encoredevlabs.com)",
   "license": "ISC",
   "dependencies": {
-    "node-dht-sensor": "0.0.34"
+    "node-dht-sensor": "^0.4.3"
   },
   "devDependencies": {
     "eslint": "^4.13.1",
